@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.task-close{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 15px;
+  gap: 30px;
+  width: 740px;
+  background: #FFFFFF;
+  border-radius: 15px;
+
+}
+#isDoneColor{
+  width: 8px;
+  border-radius: 4px;
+  height: 63px;
+}
+.done1{
+  background-color: #3DCF5D;
+}
+.expired{
+  background-color: #CF583D;
+}
+.inProcess{
+  background-color: #3D66CF;
+}
+p{
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  margin: 0px;
+  width: 636px;
+}
+.text{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+}
+.heading{
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.05em;
+  color: #141414;
+}
+.description{
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  color: #6E6E6E;
+}
+.button{
+  margin: 0px;
+  padding: 0px;
+  border-style: none;
+  background-color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+}
+.buttons button{
+  width: auto;
+  padding: 8px 16px;
+  background: #FFFFFF;
+  border: 1px solid #363636;
+  box-sizing: border-box;
+  border-radius: 12px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #363636;
+  margin-right: 12px;
+}
+form{
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+input, textarea{
+  background: #FFFFFF;
+  border: 1px solid #969696;
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 8px 16px 9px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  color: #969696;
+  width: 636px;
+}
+input{
+  height: 40px;
+}
+textarea{
+  height: 120px;
+}
+.sub{
+  display: flex;
+  flex-direction: row;
+}
+.deadline{
+  width: 312px;
+  margin-right: 12px;
+}
+.sub button{
+  margin-right: 0px;
+  width: 312px;
+}
+

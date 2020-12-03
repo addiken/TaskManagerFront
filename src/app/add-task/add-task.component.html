@@ -1,0 +1,9 @@
+<form #form="ngForm" (ngSubmit)="sendForm(form)">
+  <label id="heading">Добавление задачи</label>
+  <input type="text" placeholder="Введите заголовок" name="heading" ngModel required>
+  <textarea placeholder="Введите описание" name="description" ngModel required></textarea>
+  <div class="sub">
+    <input type="datetime-local" class="deadline" name="deadline" ngModel required>
+    <button type="submit">Добавить</button>
+  </div>
+</form>

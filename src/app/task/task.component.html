@@ -1,0 +1,38 @@
+<div class="task-close">
+  <div id="isDoneColor" [ngClass]="{done1: done, expired: !done, inProcess: inProcess}"></div>
+
+  <div class="text">
+    <div class="text" *ngIf="close ; else open">
+      <p class="heading">{{heading}}</p>
+      <p class="description">{{description}}</p>
+    </div>
+    <ng-template class="text" #open>
+      <p class="heading">{{task.Heading}}</p>
+      <p class="description">{{task.Description}}</p>
+      <p class="description">Создана: {{createDate.toLocaleString("ru-RU")}}</p>
+      <p class="description">Срок: до {{deadline.toLocaleString("ru-RU")}}</p>
+      <p class="description">Задача №{{task.Id}}</p>
+      <div class="buttons">
+        <button (click)="DoTask()">Изменить состояние</button>
+        <button (click)="Edit()">Изменить</button>
+        <button (click)="DeleteTask()">Удалить</button>
+        <div *ngIf="edit">
+          <form #form="ngForm" (ngSubmit)="sendForm(form)">
+            <label id="heading" class="description">Изменение задачи</label>
+            <input [value]="task.Heading" type="text" placeholder="Введите заголовок" name="heading" ngModel required>
+            <textarea [value]="task.Description" placeholder="Введите описание" name="description" ngModel required></textarea>
+            <div class="sub">
+              <input [value]="task.Deadline" type="datetime-local" class="deadline" name="deadline" ngModel required>
+              <button type="submit">Подтвердить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <button (click)="Change()" class="button">
+    <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10.5 11H16.5V17H10.5V11ZM10.5 20H16.5V26H10.5V20ZM19.5 11H25.5V17H19.5V11ZM19.5 20H25.5V26H19.5V20Z" fill="black"/>
+    </svg>
+  </button>
+</div>
