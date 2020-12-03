@@ -1,0 +1,8 @@
+.content{
+  margin: auto;
+  width: 770px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
