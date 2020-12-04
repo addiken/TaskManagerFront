@@ -5,6 +5,7 @@ export class Task{
   CreateDate: Date;
   Deadline: Date;
   isDone: boolean;
+  isDelete: boolean;
 
   constructor(Id: number, Heading: string, Description: string, CreateDate: Date, Deadline: Date, isDone: boolean) {
     this.Id = Id;
@@ -13,5 +14,6 @@ export class Task{
     this.CreateDate = CreateDate;
     this.Deadline = Deadline;
     this.isDone = isDone;
+    this.isDelete = true;
   }
 }

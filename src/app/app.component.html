@@ -1,7 +1,7 @@
 <div class="content">
   <app-add-task></app-add-task>
-  <div *ngFor="let task of tasks" class="tasks">
-    <app-task [task]=task></app-task>
+  <div *ngFor="let task of tasks">
+    <app-task *ngIf="task.isDelete" [task]=task></app-task>
   </div>
 </div>
 

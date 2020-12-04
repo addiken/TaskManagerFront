@@ -2,8 +2,6 @@ import {ChangeDetectionStrategy, Component, Input, OnInit, Output} from '@angula
 import {Task} from '../entity/Task';
 import {HttpClient} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
-import {EventEmitter} from 'events';
-
 
 @Component({
   selector: 'app-task',
@@ -68,6 +66,9 @@ export class TaskComponent implements OnInit{
       deadline: this.etask.deadline,
       isDone: this.task.isDone,
     }, {headers}).subscribe();
+    this.task.Heading = this.etask.heading;
+    this.task.Description = this.etask.description;
+    this.deadline = new Date(this.etask.deadline);
   }
   // tslint:disable-next-line:typedef
   DoTask() {
@@ -79,11 +80,27 @@ export class TaskComponent implements OnInit{
       deadline: this.task.Deadline,
       isDone: !this.task.isDone,
     }, {headers}).subscribe();
+    this.done = !this.done;
+    this.IsDone2();
+  }
+  // tslint:disable-next-line:typedef
+  DoTask2() {
+    const headers = {'Content-Type': 'application/json'};
+    this.http.post('https://localhost:44379/Task/api/EditTask', {
+      id: this.task.Id,
+      heading: this.task.Heading,
+      description: this.task.Description,
+      deadline: this.task.Deadline,
+      isDone: !this.task.isDone,
+    }, {headers}).subscribe();
+    this.task.isDone = !this.task.isDone;
+    this.IsDone();
   }
   // tslint:disable-next-line:typedef
   DeleteTask(){
     this.http.delete('https://localhost:44379/Task/api/DeleteTask?id=' + this.task.Id)
       .subscribe();
+    this.task.isDelete = !this.task.isDelete;
   }
   // tslint:disable-next-line:typedef
   IsDone(){
@@ -96,6 +113,14 @@ export class TaskComponent implements OnInit{
       } else {
         this.inProcess = true;
       }
+    }
+  }
+  // tslint:disable-next-line:typedef
+  IsDone2(){
+    if (this.deadline <= this.now) {
+      this.inProcess = false;
+    } else {
+      this.inProcess = true;
     }
   }
 }
