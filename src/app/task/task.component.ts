@@ -80,19 +80,6 @@ export class TaskComponent implements OnInit{
       deadline: this.task.Deadline,
       isDone: !this.task.isDone,
     }, {headers}).subscribe();
-    this.done = !this.done;
-    this.IsDone2();
-  }
-  // tslint:disable-next-line:typedef
-  DoTask2() {
-    const headers = {'Content-Type': 'application/json'};
-    this.http.post('https://localhost:44379/Task/api/EditTask', {
-      id: this.task.Id,
-      heading: this.task.Heading,
-      description: this.task.Description,
-      deadline: this.task.Deadline,
-      isDone: !this.task.isDone,
-    }, {headers}).subscribe();
     this.task.isDone = !this.task.isDone;
     this.IsDone();
   }
@@ -106,21 +93,13 @@ export class TaskComponent implements OnInit{
   IsDone(){
     if (this.task.isDone === true) {
       this.done = true;
+      this.inProcess = false;
+    } else if (this.task.isDone === false && (this.deadline > this.now)) {
+      this.done = false;
+      this.inProcess = true;
     } else {
       this.done = false;
-      if (this.deadline <= this.now) {
-        this.inProcess = false;
-      } else {
-        this.inProcess = true;
-      }
-    }
-  }
-  // tslint:disable-next-line:typedef
-  IsDone2(){
-    if (this.deadline <= this.now) {
       this.inProcess = false;
-    } else {
-      this.inProcess = true;
     }
   }
 }

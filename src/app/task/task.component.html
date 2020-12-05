@@ -13,7 +13,7 @@
       <p class="description">Срок: до {{deadline.toLocaleString("ru-RU")}}</p>
       <p class="description">Задача №{{task.Id}}</p>
       <div class="buttons">
-        <button (click)="DoTask2()">Изменить состояние</button>
+        <button (click)="DoTask()">Изменить состояние</button>
         <button (click)="Edit()">Изменить</button>
         <button (click)="DeleteTask()">Удалить</button>
         <div *ngIf="edit">
